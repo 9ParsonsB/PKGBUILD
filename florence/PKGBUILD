@@ -1,0 +1,25 @@
+# Maintainer: Ben Parsons <9parsonsb@gmail.com>
+
+pkgname=florence-meson
+provides=('florence')
+pkgver=0.6.3
+pkgrel=2
+pkgdesc='A configurable on-screen virtual keyboard - meson build'
+arch=('i686' 'x86_64')
+url="http://github.com/9parsonsb/florence"
+license=('GPL')
+depends=('gtk3' 'libxml2' 'librsvg' 'libxtst' 'gettext' 'gstreamer>=1.0') # http://florence.sourceforge.net/english/install.html
+makedepends=('intltool>=0.23' 'gnome-doc-utils' 'git' 'meson')
+source=("git+${url}.git")
+sha256sums=(SKIP)
+
+build() {
+#	cd "${srcdir}/${pkgname}-${pkgver}"
+
+	arch-meson florence build -Dwith-xrecord=false
+	meson compile -C build
+}
+
+package() {
+	meson install -C build --destdir "${pkgdir}"
+}
