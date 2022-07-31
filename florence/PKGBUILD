@@ -9,7 +9,7 @@ arch=('i686' 'x86_64')
 url="http://github.com/9parsonsb/florence"
 license=('GPL')
 depends=('gtk3' 'libxml2' 'librsvg' 'libxtst' 'gettext' 'gstreamer>=1.0') # http://florence.sourceforge.net/english/install.html
-makedepends=('intltool>=0.23' 'gnome-doc-utils' 'git' 'meson')
+makedepends=('intltool>=0.23' 'gnome-doc-utils' 'git' 'meson' 'trang' 'gtk3' 'cairo' 'librsvg' 'libxml2' 'gstreamer')
 source=("git+${url}.git")
 sha256sums=(SKIP)
 
